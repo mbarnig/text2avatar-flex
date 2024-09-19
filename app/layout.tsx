@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      lang="en"
+      lang="en" >
       <head />
       <body>
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
