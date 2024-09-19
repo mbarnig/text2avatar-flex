@@ -1,11 +1,11 @@
 "use client";
 
-import InteractiveAvatarTextInput from "@/components/InteractiveAvatarTextInput";
+import InteractiveAvatar from "@/components/InteractiveAvatar";
 
 export default function App() {
   return (
      <div>
-        <InteractiveAvatarTextInput />
+        <InteractiveAvatar />
      </div>
   );
 } 
