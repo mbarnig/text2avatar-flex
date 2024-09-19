@@ -34,7 +34,7 @@ export default function InteractiveAvatarTextInput({
   return (
     <Input
       endContent={
-        <div>
+        <div className="flex flex-row items-center h-full">
           {endContent}
           <Tooltip content="Send message">
             {loading ? (
