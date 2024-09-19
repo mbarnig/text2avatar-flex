@@ -322,17 +322,11 @@ export default function InteractiveAvatar() {
                 </div>
                 <div style={{ flex: "1 1 50%", maxWidth: "50%" }}>      
                  <h2>Demo Limitations:</h2>
-                 <ul>
-                  <li>Up to 3 concurrent sessions are allowed.</li>
-                  <li>Each session is limited to a maximum of 10 minutes.</li>
-                  <li>The global monthly limit is 300 minutes.</li>                  
+                 <ul>                
                   <li>Submitted text should not exceed 1500 characters.</li>
-                 </ul>
-                 <h2>For Optimal Performance:</h2>
-                 <ul>
                   <li>Use the Chrome browser with a large screen for the best experience.</li>
                   <li>Submit text in multiple languages: BG,CN,CZ,DK,EN,ES,FI,FR,DE,GR,HU,IN,ID,IT,JP,KR, LU,MY,NL,NO,PL,PT,RO,RU,SK,SE,TR,UA,VN.</li>
-                  <li>Monitor log messages in the console for important updates.</li>
+                  <li>Monitor log messages in the console for important feedback.</li>
                  </ul>
                </div>
               </div>              
