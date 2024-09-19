@@ -280,9 +280,9 @@ export default function InteractiveAvatar() {
   return (
     <div className="w-full flex flex-col gap-4">
       <Card>
-        <CardBody className="h-[500px] flex flex-col justify-center items-center">
+        <CardBody>
           {stream ? (
-            <div className="h-[500px] w-[900px] justify-center items-center flex rounded-lg overflow-hidden">
+            <div>
               <video
                 ref={mediaStream}
                 autoPlay
@@ -295,7 +295,7 @@ export default function InteractiveAvatar() {
               >
                 <track kind="captions" />
               </video>
-              <div className="flex flex-col gap-2 absolute bottom-3 right-3">
+              <div>
                 <Button
                   size="md"
                   onClick={handleInterrupt}
@@ -339,7 +339,7 @@ export default function InteractiveAvatar() {
               <Button
                 size="md"
                 onClick={startSession}
-                className="bg-gradient-to-tr from-indigo-500 to-indigo-300 w-full text-white"
+                className="bg-gradient-to-tr from-indigo-500 to-indigo-300 text-white"
                 variant="shadow"
               >
                 Start session
@@ -351,7 +351,7 @@ export default function InteractiveAvatar() {
           )}
         </CardBody>
         <Divider />
-        <CardFooter className="flex flex-col gap-3">
+        <CardFooter>
 
           <InteractiveAvatarTextInput
             label="Repeat"
