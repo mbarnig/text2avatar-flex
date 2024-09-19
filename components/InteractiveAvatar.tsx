@@ -80,8 +80,42 @@ export default function InteractiveAvatar() {
     }
   }
 
+  async function checkPassword() {
+  try {
+    const secret_password = process.env.NEXT_PUBLIC_SESSION_START_PASSWORD;  
+    
+    const entered_password  = prompt("Enter your personal password to start a session");
+
+    if (!entered_password) {
+      setDebug("No password entered.");
+      return false;
+    }
+
+    console.log("password entered: ", entered_password);
+
+    if (entered_password === secret_password) {
+      return true;
+    } else {
+      return false;
+    }
+    
+  } catch (error) {
+    console.error('Error validating password:', error);
+    // Assuming setDebug is a function available in the context
+    setDebug("Error validating password.");
+    return false;
+  }
+}
+  
   async function startSession() {
-    setIsLoadingSession(true);
+     // Call the function to verify the password using HuggingFace secret
+     const passwordValid = await checkPassword();
+     if (!passwordValid) {
+        setDebug("Invalid password, session cannot be started.");
+        setIsLoadingSession(false);
+        return;
+    }     
+    // Continue with the session setup if password is valid    setIsLoadingSession(true);
     await updateToken();
     if (!avatar.current) {
       setDebug("Avatar API is not initialized");
@@ -291,12 +325,13 @@ export default function InteractiveAvatar() {
                  <ul>
                   <li>Up to 3 concurrent sessions are allowed.</li>
                   <li>Each session is limited to a maximum of 10 minutes.</li>
-                  <li>Submitted text should not exceed 1000 words.</li>
+                  <li>The global monthly limit is 300 minutes.</li>                  
+                  <li>Submitted text should not exceed 1500 characters.</li>
                  </ul>
                  <h2>For Optimal Performance:</h2>
                  <ul>
-                  <li>Use the Chrome browser for the best experience.</li>
-                  <li>Submit text in multiple languages: English, German, French, Luxembourgish, Chinese, Japanese, Hindi, Korean, Danish, Dutch, Turkish, and more.</li>
+                  <li>Use the Chrome browser with a large screen for the best experience.</li>
+                  <li>Submit text in multiple languages: BG,CN,CZ,DK,EN,ES,FI,FR,DE,GR,HU,IN,ID,IT,JP,KR, LU,MY,NL,NO,PL,PT,RO,RU,SK,SE,TR,UA,VN.</li>
                   <li>Monitor log messages in the console for important updates.</li>
                  </ul>
                </div>
